@@ -1,11 +1,11 @@
-name: A workflow for my Hello World file
-on: push
-jobs:
-  build:
-    name: Hello world action
+name: A workflow for my Hello World file # Name of the workflow shown on the Actions tab
+on: push                          # What triggers a workflow run
+jobs:                             # jobs are the base component of a workflow
+  build:                          # The identifier we're attaching to this specific job
+    name: Hello world job         # This is displayed on GitHub when you look at each job in the workflow run
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: ./action-a
-        with:
+    steps:                        # Steps are all the operations that make up a job
+      - uses: actions/checkout@v1 # A community action that allows the workflow to access the repo contents
+      - uses: ./action-a          # Relative path to an action that was defined in the same repo
+        with:                     # Used to specify input variables available to the action
           MY_NAME: "Mona"
